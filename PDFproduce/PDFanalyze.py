@@ -1,6 +1,7 @@
 import pymupdf
 import fitz
-
+from pathlib import Path
+floder_path = Path("../data")
 '''
 for page_num in range(1):
     page = doc[page_num]
@@ -27,8 +28,11 @@ def extract_text_tables(pdf_path):
     doc.close()
 
 # 使用示例
-pdf_path = "../data/data2.pdf"
-extract_text_tables(pdf_path)
+pdf_file = list(floder_path.glob('*.pdf'))
+for file in pdf_file:
+    print(file)
+    extract_text_tables(file)
+    break
 
 
 
