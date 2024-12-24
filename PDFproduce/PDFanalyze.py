@@ -17,23 +17,17 @@ def extract_text_tables(pdf_path):
 
         print(f"--- Page {page_num + 1} ---")
         for block in blocks:
-            if len(block) == 5:
-                x0, y0, x1, y1, text = block
-            elif len(block) == 6:
-                x0, y0, x1, y1, text, block_type = block
-            else:
-                print("Unexpected block format:", block)
-                continue
+            # 获取块内容中的文本部分
+            text = block[4]  # 文本通常是第5个元素（索引从0开始）
+            if text.strip():  # 过滤掉空文本块
+                print(text)  # 打印纯文本
 
-            if text.strip():  # 过滤掉空内容块
-                if "\n" in text or "\t" in text:  # 简单判断是否为表格
-                    print(f"Block at ({x0}, {y0}, {x1}, {y1}):")
-                    print(text)
+
 
     doc.close()
 
 # 使用示例
-pdf_path = "../data/data1.pdf"
+pdf_path = "../data/data2.pdf"
 extract_text_tables(pdf_path)
 
 
