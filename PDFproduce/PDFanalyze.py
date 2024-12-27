@@ -3,13 +3,7 @@ import fitz
 from pathlib import Path
 import camelot
 floder_path = Path("../data")
-'''
-for page_num in range(1):
-    page = doc[page_num]
-    text = page.get_text()  # 提取文本
-    print(f"--- Page {page_num + 1} ---")
-    print(text)
-'''
+
 def extract_text(pdf_path):
     doc = fitz.open(pdf_path)
 
@@ -62,14 +56,14 @@ def extract_text_and_tables(pdf_path, output_dir):
         print("--- Extraction Complete ---")
 # 使用示例
 # 以页为单位读取pdf中内容并保存到txt中
-pdf_file = list(floder_path.glob('*.pdf'))
-for file in pdf_file:
-    print(file)
-    #extract_text_tables(file)
-    extract_text_and_tables(file,'../output')
-    break
+def produce_pdf():
+    pdf_file = list(floder_path.glob('*.pdf'))
+    for file in pdf_file:
+        print(file)
+        #extract_text_tables(file)
+        extract_text_and_tables(file,'../output')
+        break
 
-#构建倒排表
 
 
 
