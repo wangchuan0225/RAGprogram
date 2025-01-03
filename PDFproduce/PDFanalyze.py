@@ -3,7 +3,9 @@ import fitz
 from pathlib import Path
 import camelot
 floder_path = Path("../data")
-
+'''
+提取文本
+'''
 def extract_text(pdf_path):
     doc = fitz.open(pdf_path)
 

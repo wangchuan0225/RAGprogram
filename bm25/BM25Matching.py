@@ -1,5 +1,5 @@
 import json
-from PDFproduce.Lemmatization import load_from_json, sentences_table, internal_dict
+from PDFproduce.Lemmatization import load_from_json, sentences_table, sentence_internal_dict
 from QwenAPI.api import return_key_word, return_answer
 
 internal_list=load_from_json(internal_dict)
